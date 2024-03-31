@@ -19,11 +19,10 @@ class City:
     def __str__(self):
         return "City: {}, Population: {}, Defense Material: {}, Alien Population: {}".format(self.name, self.civilians, self.weapons, self.aliens)
 
-
 def create_graph():
     cities = {}
     for i in range(10):
-        city = City(f'City {i}')
+        city = City("City {}".format(i))
         cities[city.name] = city
         city.military_base = random.choice([True, False])
         city.weapons = random.randint(0, 100)
@@ -83,15 +82,15 @@ def bfs_search(start, end):
 
 def save_city(city):
     if city.is_defeated():
-        print(f"{city.name} has been defeated by aliens.")
+        print("{} has been defeated by aliens.".format(city.name))
     else:
-        print(f"{city.name} has been saved from an alien attack.")
+        print("{} has been saved from an alien attack.".format(city.name))
 
 if __name__ == "__main__":
     cities = create_graph()
     for city_name, city in cities.items():
         print(city)
-        print("Neighbors:", ", ".join([f"{neighbor.name} (distance: {distance})" for neighbor, distance in city.neighbors.items()]))
+        print("Neighbors:", ", ".join(["{} (distance: {})".format(neighbor.name, distance) for neighbor, distance in city.neighbors.items()]))
     start = cities["City 0"]
     end = cities["City 9"]
     bfs_search(start, end)
