@@ -17,7 +17,7 @@ class City:
         return self.aliens > self.weapons
 
     def __str__(self):
-    return "City: {}, Population: {}, Defense Material: {}, Alien Population: {}".format(self.name, self.civilians, self.weapons, self.aliens)
+        return "City: {}, Population: {}, Defense Material: {}, Alien Population: {}".format(self.name, self.civilians, self.weapons, self.aliens)
 
 
 def create_graph():
